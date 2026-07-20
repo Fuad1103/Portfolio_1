@@ -1,55 +1,44 @@
+//import { useEffect, useState } from "react";
 
+//import Loader from "./components/Loader";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
-import Projects from "./components/Projects";
 import Experience from "./components/Experience";
+import Projects from "./components/Projects";
+import FeaturedProject from "./components/FeaturedProject";
+import Certifications from "./components/Certifications";
+import Blog from "./components/Blog";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import ThemeToggle from "./components/ThemeToggle";
+//import Github from "./components/Github";
+import SEO from "./components/SEO";
 import AIChat from "./components/AIChat";
+
 function App() {
-  return (
-    <div
-      className="
-        min-h-screen
-        bg-white
-        text-gray-900
-        dark:bg-gray-950
-        dark:text-white
-        transition-colors
-        duration-500
-      "
-    >
-      <ThemeToggle />
-      <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Experience />
-      <Contact />
-      <Footer />
 
-      <AIChat />
-    </div>
-  );
+return (
+
+<>
+<SEO />
+<Navbar />
+<Hero />
+<About />
+<Skills />
+<Experience />
+<Projects />
+<FeaturedProject />
+<Certifications />
+<Blog />
+<Contact />
+<Footer />
+<AIChat />
+
+</>
+
+);
+
 }
-
 export default App;
-
-
-
-
-
-/*function App() {
-  return (
-    <h1 className="text-5xl font-bold text-blue-600">
-      Tailwind Works 🚀
-    </h1>
-  );
-}
-
-export default App;*/

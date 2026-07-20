@@ -1,85 +1,201 @@
 import { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const links = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Projects", href: "#projects" },
-    { name: "Experience", href: "#experience" },
-    { name: "Contact", href: "#contact" },
+    {
+      name: "Home",
+      href: "#home",
+    },
+    {
+      name: "About",
+      href: "#about",
+    },
+    {
+      name: "Experience",
+      href: "#experience",
+    },
+    {
+      name: "Skills",
+      href: "#skills",
+    },
+    {
+      name: "Projects",
+      href: "#projects",
+    },
+    {
+      name: "Certifications",
+      href: "#certifications",
+    },
+
+    {
+      name: "Blog",
+      href: "#blog",
+    },
+    
+    {
+      name: "Contact",
+      href: "#contact",
+    },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/80 dark:bg-black/70 shadow-md">
-      <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+    <motion.nav
+      initial={{
+        y: -100,
+      }}
+      animate={{
+        y: 0,
+      }}
+      transition={{
+        duration: 0.6,
+      }}
+      className="
+        fixed
+        top-0
+        left-0
+        w-full
+        z-50
+        bg-white/20
+        dark:bg-black/40
+        backdrop-blur-xl
+        border-b
+        border-white/30
+        shadow-lg
+      "
+    >
+      <div
+        className="
+          max-w-7xl
+          mx-auto
+          px-6
+          py-4
+          flex
+          justify-between
+          items-center
+        "
+      >
+
         {/* Logo */}
-        <h1 className="text-2xl font-bold text-blue-600 cursor-pointer">
-          Fuad<span className="text-gray-900 dark:text-white">.dev</span>
-        </h1>
+        <a
+          href="#home"
+          className="
+            text-3xl
+            font-extrabold
+          "
+        >
+        
+          <span className="text-blue-600">Fuad</span>{" "}
+          <span className="text-blue-600">
+            Bin Zafar
+          </span>
+        </a>
+
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex items-center gap-8">
+        <div
+          className="
+            hidden
+            md:flex
+            items-center
+            gap-8
+          "
+        >
           {links.map((link) => (
-            <li key={link.name}>
-              <a
-                href={link.href}
+            <a
+              key={link.name}
+              href={link.href}
+              className="
+                text-gray-800
+                dark:text-white
+                hover:text-cyan-400
+                hover:scale-110
+                transition
+                duration-300
+                relative
+                group
+              "
+            >
+              {link.name}
+
+              {/* Underline Animation */}
+              <span
                 className="
-                  text-gray-700
-                  dark:text-gray-200
-                  hover:text-blue-600
-                  dark:hover:text-blue-400
-                  transition
+                  absolute
+                  left-0
+                  -bottom-2
+                  w-0
+                  h-0.5
+                  bg-cyan-400
+                  group-hover:w-full
+                  transition-all
                   duration-300
-                  font-medium
                 "
-              >
-                {link.name}
-              </a>
-            </li>
+              ></span>
+            </a>
           ))}
-        </ul>
+        </div>
+
 
         {/* Mobile Button */}
         <button
-          className="md:hidden text-2xl text-gray-700 dark:text-white"
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={() => setOpen(!open)}
+          className="
+            md:hidden
+            text-3xl
+            text-gray-800
+            dark:text-white
+          "
         >
-          {menuOpen ? <FaTimes /> : <FaBars />}
+          {open ? "✕" : "☰"}
         </button>
+
       </div>
 
+
       {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-900 shadow-md">
-          <ul className="flex flex-col px-6 py-4 space-y-4">
-            {links.map((link) => (
-              <li key={link.name}>
-                <a
-                  href={link.href}
-                  className="
-                    block
-                    text-gray-700
-                    dark:text-gray-200
-                    hover:text-blue-600
-                    dark:hover:text-blue-400
-                    transition
-                    duration-300
-                    font-medium
-                  "
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {link.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+      {open && (
+        <motion.div
+          initial={{
+            opacity: 0,
+            height: 0,
+          }}
+          animate={{
+            opacity: 1,
+            height: "auto",
+          }}
+          className="
+            md:hidden
+            px-6
+            pb-6
+            bg-white/30
+            dark:bg-black/50
+            backdrop-blur-xl
+          "
+        >
+          {links.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={() => setOpen(false)}
+              className="
+                block
+                py-3
+                text-gray-800
+                dark:text-white
+                hover:text-cyan-400
+                transition
+              "
+            >
+              {link.name}
+            </a>
+          ))}
+        </motion.div>
       )}
-    </nav>
+
+    </motion.nav>
   );
 }
 

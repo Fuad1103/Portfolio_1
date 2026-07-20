@@ -1,28 +1,41 @@
 import { motion } from "framer-motion";
+
 import projects from "../data/projects";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
+
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 
-function Projects() {
+
+function FeaturedProject(){
 
 
-return (
+
+const featuredProjects = projects.filter(
+(project)=> project.featured === true
+);
+
+
+
+return(
+
 
 <section
 
-id="projects"
+id="featured"
 
 className="
 py-24
 px-6
 
 bg-gradient-to-br
+
 from-slate-100
 via-blue-50
 to-slate-200
@@ -30,9 +43,6 @@ to-slate-200
 dark:from-slate-900
 dark:via-slate-800
 dark:to-blue-950
-
-text-gray-900
-dark:text-white
 "
 
 >
@@ -42,13 +52,16 @@ dark:text-white
 
 
 
+
+
 {/* Heading */}
+
 
 <motion.div
 
 initial={{
 opacity:0,
-y:50
+y:40
 }}
 
 whileInView={{
@@ -58,10 +71,6 @@ y:0
 
 viewport={{
 once:true
-}}
-
-transition={{
-duration:0.7
 }}
 
 className="text-center"
@@ -74,13 +83,16 @@ className="text-center"
 className="
 text-5xl
 font-bold
+text-gray-900
+dark:text-white
 "
 
 >
 
-My Projects 🚀
+Featured Projects 🚀
 
 </h2>
+
 
 
 <p
@@ -93,7 +105,7 @@ dark:text-gray-400
 
 >
 
-Some things I have built recently
+My most important AI, Embedded and Software projects
 
 </p>
 
@@ -104,12 +116,14 @@ Some things I have built recently
 
 
 
-{/* Swiper */}
+
 
 <div className="mt-14">
 
 
+
 <Swiper
+
 
 modules={[
 Navigation,
@@ -128,7 +142,7 @@ clickable:true
 
 autoplay={{
 
-delay:2000,
+delay:4500,
 
 disableOnInteraction:false,
 
@@ -143,40 +157,10 @@ loop={true}
 spaceBetween={30}
 
 
-breakpoints={
+slidesPerView={1}
 
 
-{
-
-0:{
-
-slidesPerView:1,
-
-},
-
-640:{
-
-slidesPerView:1,
-
-},
-
-768:{
-
-slidesPerView:2,
-
-},
-
-1280:{
-
-slidesPerView:3,
-
-}
-
-}
-
-}
-
-
+className="pb-14"
 
 >
 
@@ -184,67 +168,45 @@ slidesPerView:3,
 
 {
 
-projects.map((project,index)=>(
+featuredProjects.map((project,index)=>(
 
 
 <SwiperSlide key={index}>
-
 
 
 <motion.div
 
 
 initial={{
-
 opacity:0,
-
 y:50
-
 }}
 
 
 whileInView={{
-
 opacity:1,
-
 y:0
-
 }}
 
 
 viewport={{
-
 once:true
-
-}}
-
-
-transition={{
-
-duration:0.5,
-
-delay:index*0.1
-
 }}
 
 
 whileHover={{
-
-y:-10,
-
-scale:1.03
-
+scale:1.02
 }}
 
 
 
 className="
 
-h-[850px]
+grid
 
-flex
+md:grid-cols-2
 
-flex-col
+gap-10
 
 bg-white/70
 
@@ -260,17 +222,15 @@ dark:border-white/20
 
 rounded-3xl
 
-overflow-hidden
+p-8
 
 shadow-xl
-
-hover:shadow-2xl
-
-transition
 
 "
 
 >
+
+
 
 
 
@@ -279,29 +239,26 @@ transition
 
 <img
 
-
 src={project.image}
-
 
 alt={project.title}
 
-
 className="
+
+rounded-2xl
 
 w-full
 
-h-52
+h-80
+
+md:h-96
 
 object-cover
 
-flex-shrink-0
-
 "
 
-
-
-
 />
+
 
 
 
@@ -314,34 +271,23 @@ flex-shrink-0
 <div
 
 className="
-
-p-6
-
 flex
-
 flex-col
-
-flex-1
-
+justify-center
 "
 
 >
 
 
-
 <h3
 
 className="
-
-text-xl
-
-md:text-2xl
-
+text-3xl
+md:text-4xl
 font-bold
 
-leading-tight
-
-min-h-[70px]
+text-gray-900
+dark:text-white
 
 "
 
@@ -355,22 +301,16 @@ min-h-[70px]
 
 
 
-
 <p
 
 className="
+mt-5
 
-mt-4
-
-text-gray-700
+text-gray-600
 
 dark:text-gray-300
 
-leading-7
-
-text-sm
-
-md:text-base
+leading-8
 
 "
 
@@ -386,25 +326,16 @@ md:text-base
 
 
 
-
 {/* Technologies */}
-
 
 
 <div
 
 className="
-
-mt-6
-
 flex
-
 flex-wrap
-
-justify-center
-
 gap-3
-
+mt-6
 "
 
 >
@@ -422,14 +353,9 @@ key={tech}
 className="
 
 px-4
-
 py-2
 
 rounded-full
-
-text-sm
-
-font-semibold
 
 bg-cyan-100
 
@@ -438,6 +364,10 @@ text-cyan-700
 dark:bg-cyan-500/20
 
 dark:text-cyan-300
+
+font-semibold
+
+text-sm
 
 "
 
@@ -463,21 +393,16 @@ dark:text-cyan-300
 
 
 
+
 {/* Buttons */}
 
 
 <div
 
 className="
-
-mt-auto
-
-pt-8
-
 flex
-
-gap-4
-
+gap-5
+mt-8
 "
 
 >
@@ -491,28 +416,23 @@ target="_blank"
 
 rel="noopener noreferrer"
 
-
 className="
 
-flex-1
-
-text-center
-
-px-5
+px-6
 
 py-3
 
 rounded-xl
-
-font-semibold
-
-text-white
 
 bg-gradient-to-r
 
 from-cyan-400
 
 to-blue-500
+
+text-black
+
+font-bold
 
 hover:scale-105
 
@@ -529,7 +449,6 @@ Live Demo
 
 
 
-
 <a
 
 href={project.github}
@@ -538,20 +457,13 @@ target="_blank"
 
 rel="noopener noreferrer"
 
-
 className="
 
-flex-1
-
-text-center
-
-px-5
+px-6
 
 py-3
 
 rounded-xl
-
-font-semibold
 
 border
 
@@ -563,7 +475,7 @@ dark:text-cyan-300
 
 hover:bg-cyan-500
 
-hover:text-white
+hover:text-black
 
 transition
 
@@ -581,12 +493,7 @@ GitHub
 
 
 
-
-
-
 </div>
-
-
 
 
 
@@ -594,9 +501,7 @@ GitHub
 
 
 
-
 </SwiperSlide>
-
 
 
 ))
@@ -614,6 +519,9 @@ GitHub
 
 
 
+
+
+
 </div>
 
 
@@ -626,4 +534,4 @@ GitHub
 }
 
 
-export default Projects;
+export default FeaturedProject;

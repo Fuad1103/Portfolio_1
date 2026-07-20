@@ -1,35 +1,41 @@
 import { motion } from "framer-motion";
 
-import experiences from "../data/experience";
+import certifications from "../data/certifications";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
 
 
-function Experience() {
+function Certifications(){
 
 
 return (
 
 <section
 
-id="experience"
+id="certifications"
 
 className="
+
 py-24
+
 px-6
 
 bg-gradient-to-br
+
 from-slate-100
+
 via-blue-50
+
 to-slate-200
 
 dark:from-slate-900
+
 dark:via-slate-800
+
 dark:to-blue-950
 
 "
@@ -42,6 +48,7 @@ dark:to-blue-950
 
 
 {/* Heading */}
+
 
 <motion.div
 
@@ -71,15 +78,20 @@ className="text-center"
 <h2
 
 className="
+
 text-5xl
+
 font-bold
+
 text-gray-900
+
 dark:text-white
+
 "
 
 >
 
-Professional Experience 💼
+Certifications 🏆
 
 </h2>
 
@@ -88,17 +100,21 @@ Professional Experience 💼
 <p
 
 className="
-text-center
+
 mt-4
+
 text-gray-600
+
 dark:text-gray-400
+
 "
 
 >
 
-Software development, AI integration and technology experience
+Professional certificates and achievements
 
 </p>
+
 
 
 </motion.div>
@@ -107,55 +123,29 @@ Software development, AI integration and technology experience
 
 
 
-
-
-{/* Experience Slider */}
+{/* Swiper */}
 
 
 <div className="mt-14">
 
 
-
 <Swiper
 
 
-modules={[
-Navigation,
-Pagination,
-Autoplay
-]}
+modules={[Navigation]}
 
 
 navigation
-
-
-pagination={{
-clickable:true
-}}
-
-
-autoplay={{
-
-delay:2000,
-
-disableOnInteraction:false,
-
-pauseOnMouseEnter:true
-
-}}
-
-
-loop={true}
 
 
 spaceBetween={30}
 
 
 
-
 breakpoints={
 
 {
+
 
 // Mobile
 
@@ -181,7 +171,8 @@ slidesPerView:2,
 
 slidesPerView:3,
 
-}
+},
+
 
 }
 
@@ -195,14 +186,10 @@ slidesPerView:3,
 
 {
 
-experiences.map((item,index)=>(
+certifications.map((certificate,index)=>(
 
 
-<SwiperSlide key={index}
-
-className="h-auto"
-
->
+<SwiperSlide key={index}>
 
 
 <motion.div
@@ -212,10 +199,9 @@ initial={{
 
 opacity:0,
 
-y:50
+y:40
 
 }}
-
 
 
 whileInView={{
@@ -234,16 +220,6 @@ once:true
 }}
 
 
-transition={{
-
-duration:0.5,
-
-delay:index*0.1
-
-}}
-
-
-
 whileHover={{
 
 y:-10,
@@ -254,14 +230,9 @@ scale:1.03
 
 
 
-
 className="
 
 h-[560px]
-
-flex
-
-flex-col
 
 bg-white/70
 
@@ -277,135 +248,114 @@ dark:border-white/20
 
 rounded-3xl
 
-p-8
+overflow-hidden
 
 shadow-xl
+
+flex
+
+flex-col
 
 "
 
 >
 
 
+{/* Certificate Image */}
 
-{/* Icon + Role */}
 
+<img
+
+src={certificate.image}
+
+alt={certificate.title}
+
+className="
+
+w-full
+
+h-56
+
+object-cover
+
+flex-shrink-0
+
+"
+
+/>
+
+
+
+
+
+{/* Content */}
 
 
 <div
 
 className="
+
+p-6
+
 flex
-items-start
-gap-4
+
+flex-col
+
+flex-1
+
 "
 
 >
-
-
-<span
-
-className="
-text-4xl
-"
-
->
-
-{item.icon}
-
-</span>
-
 
 
 <h3
 
 className="
-text-2xl
+
+text-xl
+
 font-bold
-leading-tight
+
 text-gray-900
+
 dark:text-white
+
+leading-tight
+
 "
 
 >
 
-{item.role}
+{certificate.title}
 
 </h3>
 
 
-</div>
 
 
 
-
-
-
-
-{/* Company */}
-
-
-<h4
+<p
 
 className="
-mt-5
-text-cyan-500
+
+mt-3
+
+text-cyan-600
+
+dark:text-cyan-400
+
 font-semibold
-text-lg
+
 "
 
 >
 
-{item.company}
-
-</h4>
-
-
-
-
-
-
-
-{/* Location */}
-
-
-<p
-
-className="
-text-gray-500
-dark:text-gray-400
-mt-2
-"
-
->
-
-{item.location}
+{certificate.issuer}
 
 </p>
 
 
 
-
-
-
-
-
-{/* Period */}
-
-
-<p
-
-className="
-text-gray-500
-dark:text-gray-400
-mt-1
-font-medium
-"
-
->
-
-{item.period}
-
-</p>
 
 
 {/* Description */}
@@ -414,20 +364,20 @@ font-medium
 <ul
 
 className="
-mt-6
-space-y-3
 
-text-gray-700
-dark:text-gray-300
+mt-4
 
-leading-7
+space-y-2
 
 text-sm
-md:text-base
 
-overflow-y-auto
+text-gray-700
 
-pr-2
+dark:text-gray-300
+
+leading-6
+
+flex-1
 
 "
 
@@ -436,14 +386,10 @@ pr-2
 
 {
 
-item.description.map((point,i)=>(
+certificate.description.map((point,index)=>(
 
 
-<li
-
-key={i}
-
->
+<li key={index}>
 
 • {point}
 
@@ -456,15 +402,61 @@ key={i}
 }
 
 
-
 </ul>
 
 
 
 
 
-</motion.div>
+{/* Button */}
 
+
+<a
+
+href={certificate.link}
+
+target="_blank"
+
+rel="noopener noreferrer"
+
+
+className="
+
+mt-auto
+
+px-5
+
+py-2
+
+rounded-xl
+
+bg-cyan-500
+
+text-black
+
+font-semibold
+
+text-center
+
+hover:bg-cyan-600
+
+transition
+
+"
+
+>
+
+View Certificate
+
+</a>
+
+
+
+</div>
+
+
+
+</motion.div>
 
 
 </SwiperSlide>
@@ -476,6 +468,7 @@ key={i}
 }
 
 
+
 </Swiper>
 
 
@@ -484,8 +477,8 @@ key={i}
 
 
 
-</div>
 
+</div>
 
 
 </section>
@@ -497,4 +490,4 @@ key={i}
 }
 
 
-export default Experience;
+export default Certifications;

@@ -1,250 +1,842 @@
-import { useState } from "react";
-import emailjs from "emailjs-com";
+import { motion } from "framer-motion";
 import Reveal from "./Reveal";
+
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope
+} from "react-icons/fa";
+
 
 function Contact() {
 
-  const [formData, setFormData] = useState({
-    from_name: "",
-    from_email: "",
-    message: "",
-  });
+
+return (
+
+<Reveal>
 
 
-  const [status, setStatus] = useState("");
+<section
+
+id="contact"
+
+className="
+py-24
+px-6
+
+bg-gradient-to-br
+from-slate-100
+via-blue-50
+to-slate-200
+
+dark:from-slate-900
+dark:via-slate-800
+dark:to-blue-950
+
+"
+
+>
 
 
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs
-      .send(
-        "login@fuad",
-        "template_x3ajq69",
-        formData,
-        "ZEfzVOT9RpcfcC6Hq"
-      )
-
-      .then(() => {
-        setStatus("Message sent successfully! ✅");
-
-        setFormData({
-          from_name: "",
-          from_email: "",
-          message: "",
-        });
-      })
-
-      .catch(() => {
-        setStatus("Failed to send message ❌");
-      });
-  };
-
-
-  return (
-    <Reveal>
-
-      <section
-        id="contact"
-        className="
-          py-20
-          px-4
-          md:px-10
-          bg-white
-          dark:bg-gray-950
-          transition-colors
-          duration-500
-        "
-      >
-
-        <div className="max-w-4xl mx-auto">
-
-
-          {/* Heading */}
-          <div className="text-center mb-12">
-
-            <h2
-              className="
-                text-3xl
-                md:text-4xl
-                font-bold
-                text-gray-800
-                dark:text-white
-              "
-            >
-              Contact Me
-            </h2>
-
-
-            <p
-              className="
-                mt-4
-                text-gray-600
-                dark:text-gray-300
-              "
-            >
-              Have a project or want to work together? Send me a message.
-            </p>
-
-          </div>
+<div className="max-w-7xl mx-auto">
 
 
 
-          {/* Form */}
-          <form
-            onSubmit={sendEmail}
-            className="
-              bg-gray-100
-              dark:bg-gray-900
-              rounded-xl
-              shadow-lg
-              p-8
-              space-y-6
-            "
-          >
+{/* Heading */}
+
+<motion.div
+
+initial={{
+opacity:0,
+y:40
+}}
+
+whileInView={{
+opacity:1,
+y:0
+}}
+
+viewport={{
+once:true
+}}
+
+transition={{
+duration:0.6
+}}
+
+className="text-center"
+
+>
 
 
-            {/* Name */}
-            <input
-              type="text"
-              placeholder="Your Name"
-              value={formData.from_name}
-              onChange={(e) =>
-                setFormData({
-                  ...formData,
-                  from_name: e.target.value,
-                })
-              }
+<h2
 
-              className="
-                w-full
-                px-4
-                py-3
-                rounded-lg
-                bg-white
-                dark:bg-gray-800
-                text-gray-800
-                dark:text-white
-                outline-none
-                border
-                border-gray-300
-                dark:border-gray-700
-              "
+className="
+text-5xl
+font-bold
+text-gray-900
+dark:text-white
+"
 
-              required
-            />
+>
+
+Contact Me 📩
+
+</h2>
 
 
+<p
 
-            {/* Email */}
-            <input
-              type="email"
-              placeholder="Your Email"
-              value={formData.from_email}
-              onChange={(e) =>
-                setFormData({
-                  ...formData,
-                  from_email: e.target.value,
-                })
-              }
+className="
+mt-4
+max-w-2xl
+mx-auto
+text-gray-600
+dark:text-gray-400
+"
 
-              className="
-                w-full
-                px-4
-                py-3
-                rounded-lg
-                bg-white
-                dark:bg-gray-800
-                text-gray-800
-                dark:text-white
-                outline-none
-                border
-                border-gray-300
-                dark:border-gray-700
-              "
+>
 
-              required
-            />
+I am open to opportunities in Embedded Systems,
+Artificial Intelligence, Frontend Development,
+and Intelligent Software Solutions.
+
+</p>
+
+
+</motion.div>
 
 
 
-            {/* Message */}
-            <textarea
-              rows="5"
-              placeholder="Your Message"
-
-              value={formData.message}
-
-              onChange={(e) =>
-                setFormData({
-                  ...formData,
-                  message: e.target.value,
-                })
-              }
-
-              className="
-                w-full
-                px-4
-                py-3
-                rounded-lg
-                bg-white
-                dark:bg-gray-800
-                text-gray-800
-                dark:text-white
-                outline-none
-                border
-                border-gray-300
-                dark:border-gray-700
-              "
-
-              required
-            />
 
 
 
-            {/* Button */}
-            <button
-              type="submit"
+<div
 
-              className="
-                w-full
-                py-3
-                bg-blue-600
-                text-white
-                rounded-lg
-                hover:bg-blue-700
-                hover:scale-105
-                transition
-                duration-300
-              "
-            >
-              Send Message
-            </button>
+className="
+grid
+grid-cols-1
+lg:grid-cols-2
+gap-12
+mt-14
+"
+
+>
 
 
-            {/* Status */}
-            {status && (
-              <p
-                className="
-                  text-center
-                  text-gray-700
-                  dark:text-gray-300
-                "
-              >
-                {status}
-              </p>
-            )}
 
 
-          </form>
+
+{/* Contact Information */}
 
 
-        </div>
+<motion.div
 
-      </section>
+initial={{
+opacity:0,
+x:-50
+}}
 
-    </Reveal>
-  );
+whileInView={{
+opacity:1,
+x:0
+}}
+
+viewport={{
+once:true
+}}
+
+className="
+
+bg-white/70
+
+dark:bg-white/10
+
+backdrop-blur-xl
+
+border
+
+border-gray-200
+
+dark:border-white/20
+
+rounded-3xl
+
+p-8
+
+shadow-xl
+
+"
+
+>
+
+
+
+{/* Availability */}
+
+
+<div
+
+className="
+inline-flex
+px-4
+py-2
+rounded-full
+
+bg-green-100
+text-green-700
+
+dark:bg-green-500/20
+dark:text-green-400
+
+font-semibold
+text-sm
+"
+
+>
+
+🟢 Available for new opportunities
+
+</div>
+
+
+
+
+
+<h3
+
+className="
+mt-6
+text-3xl
+font-bold
+
+text-gray-900
+
+dark:text-white
+
+"
+
+>
+
+Let's Work Together 🚀
+
+</h3>
+
+
+
+
+<p
+
+className="
+mt-4
+text-gray-600
+
+dark:text-gray-300
+
+leading-7
+
+"
+
+>
+
+I enjoy building intelligent systems by combining
+software engineering, artificial intelligence,
+and embedded technologies.
+
+</p>
+
+
+
+
+
+
+
+<div
+
+className="
+mt-8
+space-y-5
+
+"
+
+>
+
+
+
+
+{/* Email */}
+
+
+<a
+
+href="https://mail.google.com/mail/?view=cm&fs=1&to=fuad110398@gmail.com"
+
+target="_blank"
+
+rel="noopener noreferrer"
+
+className="
+
+flex
+items-center
+gap-4
+
+p-5
+
+min-h-[90px]
+
+rounded-xl
+
+bg-white
+
+dark:bg-white/10
+
+shadow
+
+hover:scale-105
+
+transition
+
+"
+
+>
+
+
+<FaEnvelope
+
+className="
+text-3xl
+text-cyan-500
+"
+
+/>
+
+
+<div>
+
+
+<h4
+
+className="
+font-bold
+text-gray-900
+dark:text-white
+"
+
+>
+
+Email
+
+</h4>
+
+
+<p
+
+className="
+text-gray-500
+dark:text-gray-300
+"
+
+>
+
+fuad110398@gmail.com
+
+</p>
+
+
+</div>
+
+
+</a>
+
+
+
+
+
+
+
+{/* Github */}
+
+
+<a
+
+href="https://github.com/Fuad1103"
+
+target="_blank"
+
+rel="noopener noreferrer"
+
+className="
+
+flex
+items-center
+gap-4
+
+p-5
+
+min-h-[90px]
+
+rounded-xl
+
+bg-white
+
+dark:bg-white/10
+
+shadow
+
+hover:scale-105
+
+transition
+
+"
+
+>
+
+
+<FaGithub
+
+className="
+text-3xl
+text-gray-900
+dark:text-white
+"
+
+/>
+
+
+<div>
+
+
+<h4
+
+className="
+font-bold
+text-gray-900
+dark:text-white
+"
+
+>
+
+GitHub
+
+</h4>
+
+
+<p
+
+className="
+text-gray-500
+dark:text-gray-300
+"
+
+>
+
+Fuad1103
+
+</p>
+
+
+</div>
+
+
+</a>
+
+
+
+
+
+
+
+{/* LinkedIn */}
+
+
+<a
+
+href="https://linkedin.com/in/fuad1103"
+
+target="_blank"
+
+rel="noopener noreferrer"
+
+className="
+
+flex
+items-center
+gap-4
+
+p-5
+
+min-h-[90px]
+
+rounded-xl
+
+bg-white
+
+dark:bg-white/10
+
+shadow
+
+hover:scale-105
+
+transition
+
+"
+
+>
+
+
+<FaLinkedin
+
+className="
+text-3xl
+text-blue-600
+"
+
+/>
+
+
+<div>
+
+
+<h4
+
+className="
+font-bold
+text-gray-900
+dark:text-white
+"
+
+>
+
+LinkedIn
+
+</h4>
+
+
+<p
+
+className="
+text-gray-500
+dark:text-gray-300
+"
+
+>
+
+fuad1103
+
+</p>
+
+
+</div>
+
+
+</a>
+
+
+
+
+</div>
+
+
+</motion.div>
+
+
+
+
+
+
+
+
+{/* Contact Form */}
+
+
+
+<motion.div
+
+initial={{
+opacity:0,
+x:50
+}}
+
+whileInView={{
+opacity:1,
+x:0
+}}
+
+viewport={{
+once:true
+}}
+
+className="
+
+bg-white/70
+
+dark:bg-white/10
+
+backdrop-blur-xl
+
+border
+
+border-gray-200
+
+dark:border-white/20
+
+rounded-3xl
+
+p-8
+
+shadow-xl
+
+"
+
+>
+
+
+
+
+<h3
+
+className="
+text-3xl
+font-bold
+text-gray-900
+dark:text-white
+mb-6
+"
+
+>
+
+Send Message ✉️
+
+</h3>
+
+
+
+
+
+<form
+
+className="
+space-y-5
+"
+
+>
+
+
+<input
+
+type="text"
+
+placeholder="Your Name"
+
+className="
+
+w-full
+
+px-5
+
+py-4
+
+rounded-xl
+
+bg-white
+
+dark:bg-white/10
+
+border
+
+border-gray-200
+
+dark:border-white/20
+
+outline-none
+
+text-gray-900
+
+dark:text-white
+
+"
+
+/>
+
+
+
+
+
+<input
+
+type="email"
+
+placeholder="Your Email"
+
+className="
+
+w-full
+
+px-5
+
+py-4
+
+rounded-xl
+
+bg-white
+
+dark:bg-white/10
+
+border
+
+border-gray-200
+
+dark:border-white/20
+
+outline-none
+
+text-gray-900
+
+dark:text-white
+
+"
+
+/>
+
+
+
+
+
+
+
+<textarea
+
+rows="6"
+
+placeholder="Your Message"
+
+className="
+
+w-full
+
+px-5
+
+py-4
+
+rounded-xl
+
+bg-white
+
+dark:bg-white/10
+
+border
+
+border-gray-200
+
+dark:border-white/20
+
+outline-none
+
+text-gray-900
+
+dark:text-white
+
+"
+
+/>
+
+
+
+
+
+
+
+<button
+
+type="submit"
+
+className="
+
+w-full
+
+py-4
+
+rounded-xl
+
+bg-gradient-to-r
+
+from-cyan-400
+
+to-blue-500
+
+text-white
+
+font-bold
+
+hover:scale-105
+
+transition
+
+duration-300
+
+shadow-lg
+
+hover:shadow-cyan-500/40
+
+"
+
+>
+
+Send Message 🚀
+
+</button>
+
+
+
+<p
+
+className="
+text-center
+mt-5
+text-sm
+text-gray-500
+dark:text-gray-400
+"
+
+>
+
+I usually respond within 24-48 hours.
+
+</p>
+
+
+
+</form>
+
+
+
+
+</motion.div>
+
+
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+</Reveal>
+
+
+);
+
+
 }
+
 
 export default Contact;
