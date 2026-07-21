@@ -24,16 +24,6 @@ function Skills() {
   const skills = [
 
 {
-category:"Programming Languages",
-icon:"💻",
-items:[
-"C",
-"C++",
-"Python"
-]
-},
-
-{
 category:"Artificial Intelligence & Machine Learning",
 icon:"🤖",
 items:[
@@ -43,6 +33,27 @@ items:[
 "Scikit-learn",
 "NumPy",
 "Pandas"
+]
+},
+{
+  category:"Web Development & Modern Frameworks",
+  icon:"🌐",
+  items:[
+    "JavaScript",
+    "React.js",
+    "HTML5",
+    "CSS3",
+    "Tailwind CSS",
+    "Vite"
+  ]
+},
+{
+category:"Programming Languages",
+icon:"💻",
+items:[
+"C",
+"C++",
+"Python"
 ]
 },
 
@@ -67,18 +78,7 @@ items:[
 "Intelligent Robotics"
 ]
 },
-{
-  category:"Web Development & Modern Frameworks",
-  icon:"🌐",
-  items:[
-    "JavaScript",
-    "React.js",
-    "HTML5",
-    "CSS3",
-    "Tailwind CSS",
-    "Vite"
-  ]
-},
+
 {
 category:"Development Tools",
 icon:"🛠️",
