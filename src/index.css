@@ -9,4 +9,65 @@ html {
 body {
   margin:0;
   font-family: Arial, Helvetica, sans-serif;
+}@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ============================= */
+/* Blog Swiper Pagination */
+/* ============================= */
+
+.blog-swiper .swiper-pagination {
+  bottom: 0px !important;
+}
+
+.blog-swiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: #94a3b8;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.blog-swiper .swiper-pagination-bullet-active {
+  background: #06b6d4;
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* ============================= */
+/* Blog Navigation Buttons */
+/* ============================= */
+
+.blog-button-prev,
+.blog-button-next {
+  transition: all 0.3s ease;
+}
+
+.blog-button-prev:hover,
+.blog-button-next:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.blog-button-prev.swiper-button-disabled,
+.blog-button-next.swiper-button-disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Hide arrows on tablet/mobile */
+
+@media (max-width: 1023px) {
+  .blog-button-prev,
+  .blog-button-next {
+    display: none !important;
+  }
 }

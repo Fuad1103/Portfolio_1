@@ -15,7 +15,8 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 //import Github from "./components/Github";
 import SEO from "./components/SEO";
-import AIChat from "./components/AIChat";
+//import AIChat from "./components/AIChat";
+//import PortfolioAI from "./components/PortfolioAI";
 
 function App() {
 
@@ -34,7 +35,7 @@ return (
 <Blog />
 <Contact />
 <Footer />
-<AIChat />
+
 
 </>
 
