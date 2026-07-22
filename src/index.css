@@ -71,3 +71,40 @@ body {
     display: none !important;
   }
 }
+/* Certification Swiper pagination */
+
+.certification-swiper .swiper-pagination {
+  bottom: 4px !important;
+}
+
+.certification-swiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: #94a3b8;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.certification-swiper .swiper-pagination-bullet-active {
+  background: #06b6d4;
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Disabled certificate navigation */
+
+.certificate-button-prev.swiper-button-disabled,
+.certificate-button-next.swiper-button-disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Hide certificate arrows on mobile/tablet */
+
+@media (max-width: 1023px) {
+  .certificate-button-prev,
+  .certificate-button-next {
+    display: none !important;
+  }
+}
