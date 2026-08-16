@@ -9,7 +9,7 @@ description: [
     "Explored real-world applications of connected intelligent devices."
     ],
 image:"/certificates/img2.png",
-link:"/certificates/Iot-1.pdf"
+link:"/certificates/img2.pdf"
 },
 
 {
@@ -21,7 +21,7 @@ description: [
     "Applied state management and performance optimization techniques."
   ],
 image:"/certificates/img1.png",
-link:"/certificates/Iot.pdf"
+link:"/certificates/img1.pdf"
 },
 {
 title:"Robotics & IoT Workshop",
@@ -32,7 +32,7 @@ description: [
     "Explored intelligent decision-making and data-driven systems."
     ],
 image:"/certificates/img3.png",
-link:"/certificates/Iot-1.pdf"
+link:"/certificates/img3.pdf"
 },
 
 {
@@ -47,7 +47,7 @@ description: [
 
 image:"/certificates/img5.png",
 
-link:"/certificates/Iot-1.pdf"
+link:"/certificates/img5.pdf"
 },
 {
 title:"Cloud Computing",
@@ -61,7 +61,7 @@ description: [
 
 image:"/certificates/img6.png",
 
-link:"/certificates/Iot-1.pdf"
+link:"/certificates/img6.pdf"
 },
 {
 title:"Cyber Security",
@@ -75,7 +75,7 @@ description: [
 
 image:"/certificates/img7.png",
 
-link:"/certificates/Iot-1.pdf"
+link:"/certificates/img7.pdf"
 },
 
 ];
