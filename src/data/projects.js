@@ -21,7 +21,7 @@ const projects = [
     ],
 
     github:
-      "https://github.com/yourusername/drone-platform",
+      "https://github.com/Fuad1103/DroneAI",
 
     demo:
       "#"
@@ -87,30 +87,30 @@ const projects = [
 
 
   {
-    title:"Frontend Development Projects",
+    title:"Personal Developer Portfolio",
 
     featured:false,
 
     description:
-      "Developed modern responsive web applications using React.js, JavaScript, Tailwind CSS, and Vite. Built reusable components, scalable UI architectures, and interactive interfaces following modern frontend development practices.",
+      "Designed and developed a modern, responsive portfolio website to showcase my experience, technical skills, projects, certifications, and professional background. Built with React.js and Tailwind CSS, featuring responsive layouts, smooth animations, dark mode support, and an interactive user experience.",
 
     image:
       "/projects/frontend.jpg",
 
     technologies:[
-      "React",
+      "React.js",
       "JavaScript",
       "Tailwind CSS",
       "Vite",
-      "HTML",
+      "Framer Motion",
       "CSS"
     ],
 
     github:
-      "https://github.com/yourusername/frontend-projects",
+      "https://github.com/Fuad1103/Portfolio_1",
 
     demo:
-      "#"
+      "https://fuadbinzafar.vercel.app/"
   },
 
 
